@@ -82,6 +82,17 @@
       box-shadow: 0 4px 20px rgba(0,128,96,0.4);
     }
 
+    .close-btn {
+      background-color: #28a085;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 8px 16px;
+      margin: 10px 0;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
     @media screen and (max-width: 600px) {
       h1 {
         font-size: 1.8em;
@@ -94,47 +105,63 @@
 
   <div class="galeria">
     <div class="contenedor-img">
-      <img src="img/shakespeare.jpg" alt="William Shakespeare" onclick="mostrarVideo('videos/shakespeare.mp4')">
+      <img src="img/shakespeare.jpg" alt="William Shakespeare" onclick="mostrarVideo('videos/shakespeare.mp4', 'William Shakespeare (Teatro)')">
       <span class="tooltip">William Shakespeare (Teatro)</span>
     </div>
     <div class="contenedor-img">
-      <img src="img/graham.jpg" alt="Martha Graham" onclick="mostrarVideo('videos/graham.mp4')">
+      <img src="img/graham.jpg" alt="Martha Graham" onclick="mostrarVideo('videos/graham.mp4', 'Martha Graham (Danza)')">
       <span class="tooltip">Martha Graham (Danza)</span>
     </div>
     <div class="contenedor-img">
-      <img src="img/davinci.jpg" alt="Leonardo da Vinci" onclick="mostrarVideo('videos/davinci.mp4')">
+      <img src="img/davinci.jpg" alt="Leonardo da Vinci" onclick="mostrarVideo('videos/davinci.mp4', 'Leonardo da Vinci (Pintura)')">
       <span class="tooltip">Leonardo da Vinci (Pintura)</span>
     </div>
     <div class="contenedor-img">
-      <img src="img/hitchcock.jpg" alt="Alfred Hitchcock" onclick="mostrarVideo('videos/hitchcock.mp4')">
+      <img src="img/hitchcock.jpg" alt="Alfred Hitchcock" onclick="mostrarVideo('videos/hitchcock.mp4', 'Alfred Hitchcock (Cine)')">
       <span class="tooltip">Alfred Hitchcock (Cine)</span>
     </div>
     <div class="contenedor-img">
-      <img src="img/cervantes.jpg" alt="Miguel de Cervantes" onclick="mostrarVideo('videos/cervantes.mp4')">
+      <img src="img/cervantes.jpg" alt="Miguel de Cervantes" onclick="mostrarVideo('videos/cervantes.mp4', 'Miguel de Cervantes (Literatura)')">
       <span class="tooltip">Miguel de Cervantes (Literatura)</span>
     </div>
     <div class="contenedor-img">
-      <img src="img/beethoven.jpg" alt="Ludwig van Beethoven" onclick="mostrarVideo('videos/beethoven.mp4')">
+      <img src="img/beethoven.jpg" alt="Ludwig van Beethoven" onclick="mostrarVideo('videos/beethoven.mp4', 'Ludwig van Beethoven (Música)')">
       <span class="tooltip">Ludwig van Beethoven (Música)</span>
     </div>
     <div class="contenedor-img">
-      <img src="img/baird.jpg" alt="John Baird" onclick="mostrarVideo('videos/baird.mp4')">
+      <img src="img/baird.jpg" alt="John Baird" onclick="mostrarVideo('videos/baird.mp4', 'John Baird (Televisión)')">
       <span class="tooltip">John Baird (Televisión)</span>
     </div>
   </div>
 
   <div class="video-container" id="contenedorVideo">
+    <h2 id="tituloVideo"></h2>
     <video id="videoF7" controls></video>
+    <br>
+    <button class="close-btn" onclick="cerrarVideo()">Cerrar Video</button>
   </div>
 
   <script>
-    function mostrarVideo(ruta) {
+    function mostrarVideo(ruta, titulo) {
       const contenedor = document.getElementById('contenedorVideo');
       const video = document.getElementById('videoF7');
+      const tituloElemento = document.getElementById('tituloVideo');
+
       video.src = ruta;
+      tituloElemento.textContent = titulo;
       contenedor.style.display = 'block';
+
       video.scrollIntoView({ behavior: 'smooth' });
       video.play();
+    }
+
+    function cerrarVideo() {
+      const contenedor = document.getElementById('contenedorVideo');
+      const video = document.getElementById('videoF7');
+      video.pause();
+      video.currentTime = 0;
+      video.src = '';
+      contenedor.style.display = 'none';
     }
   </script>
 </body>
