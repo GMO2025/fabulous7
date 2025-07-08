@@ -2,68 +2,64 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>AR Civilizations 7° GMO</title>
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <title>The Fabulous Seven</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
-body {
-  font-family: 'Libre Baskerville', serif;
-  background: linear-gradient(to right, #b0aead, #d3d0cd, #a6a4a1);
-  color: #1a1a1a;
-  text-align: center;
-}
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(to right, #00c6ff, #0072ff); /* azul degradado */
+      color: #f0fdfd;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
 
     h1 {
-      font-size: 2em;
-      margin: 20px;
-      color: #3c2f1c;
+      font-size: 2.5em;
+      margin: 20px 0;
+      color: #e0ffe0;
     }
 
     .galeria {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      max-width: 1000px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 10px;
+      padding: 20px;
     }
 
     .contenedor-img {
       position: relative;
-      display: inline-block;
     }
 
     .galeria img {
-  width: 100%;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s;
-  border: 3px solid #6e6e6e; /* gris plomo */
-  box-shadow: 0 4px 12px rgba(60, 60, 60, 0.4); /* sombra difusa gris oscuro */
-}
+      width: 100%;
+      border-radius: 10px;
+      border: 4px solid #33cc99;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 255, 128, 0.4);
+      cursor: pointer;
+    }
 
-.galeria img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(60, 60, 60, 0.6);
-}
+    .galeria img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 24px rgba(0, 255, 128, 0.6);
+    }
 
     .tooltip {
       visibility: hidden;
-      background-color: rgba(0,0,0,0.8);
+      background-color: rgba(0, 0, 0, 0.75);
       color: #fff;
-      text-align: center;
-      padding: 5px 10px;
+      padding: 6px 10px;
       border-radius: 6px;
       position: absolute;
       bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 20;
-      white-space: nowrap;
-      font-size: 0.9em;
-      transition: visibility 0.2s ease, opacity 0.2s ease;
       opacity: 0;
+      transition: opacity 0.3s ease;
     }
 
     .contenedor-img:hover .tooltip {
@@ -71,105 +67,61 @@ body {
       opacity: 1;
     }
 
-    model-viewer {
-  width: 800px;
-  height: 600px;
-  margin: 30px auto;
-  display: none;
-  background-image: url('img/fondo.jpg'); /* cambia esto a la ruta real */
-  background-size: cover; /* asegura que la imagen cubra todo el fondo */
-  background-position: center; /* centra la imagen */
-  border-radius: 20px;
-  box-shadow: 0 8px 24px rgba(80, 80, 80, 0.5); /* sombra gris difusa */
-  border: 2px solid #999;
-}
-
-    .visor-activo {
-      display: block;
+    .video-container {
+      margin-top: 20px;
     }
 
-    .controles {
-      margin: 15px;
+    video {
+      width: 80%;
+      border: 3px solid #33cc99;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,255,128,0.5);
     }
-
-.controles button {
-  padding: 10px 15px;
-  margin: 5px;
-  background-color: #ccc; /* gris claro */
-  border: 1px solid #888; /* contorno gris oscuro */
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #333; /* texto gris oscuro */
-  box-shadow: 1px 1px 5px rgba(50, 50, 50, 0.3); /* sombra tenue */
-  transition: background-color 0.3s ease;
-}
-
-.controles button:hover {
-  background-color: #b0b0b0; /* gris medio al pasar el mouse */
-}  </style>
+  </style>
 </head>
 <body>
-
-  <h1>AR Civilizations 7° G.M.O</h1> <img src="img/11.png" alt="escudo" height="150px" widht="180px">
+  <h1>The Fabulous Seven</h1>
 
   <div class="galeria">
     <div class="contenedor-img">
-      <img src="img/1.jpg" height="150" width="200" alt="Chitchen Itzá" onclick="cambiarModelo('modelos/1.glb', 'audios/1.mp3')" title="Chitchen Itzá">
-      <span class="tooltip">Chitchen Itzá</span>
+      <img src="img/shakespeare.jpg" alt="William Shakespeare">
+      <span class="tooltip">William Shakespeare (Teatro)</span>
     </div>
     <div class="contenedor-img">
-      <img src="img/2.jpg" height="150" width="200" alt="Esfinge" onclick="cambiarModelo('modelos/2.glb', 'audios/2.mp3')" title="Esfinge">
-      <span class="tooltip">Esfinge</span>
+      <img src="img/graham.jpg" alt="Martha Graham">
+      <span class="tooltip">Martha Graham (Danza)</span>
     </div>
     <div class="contenedor-img">
-      <img src="img/3.png" height="150" width="200" alt="Partenón" onclick="cambiarModelo('modelos/3.glb', 'audios/3.mp3')" title="Partenón">
-      <span class="tooltip">Partenón</span>
+      <img src="img/davinci.jpg" alt="Leonardo da Vinci">
+      <span class="tooltip">Leonardo da Vinci (Pintura)</span>
     </div>
     <div class="contenedor-img">
-      <img src="img/castillo.png" height="150" width="200" alt="Castillo Medieval" onclick="cambiarModelo('modelos/4.glb', 'audios/.mp3')" title="Castillo Medieval">
-      <span class="tooltip">MedioEvo</span>
+      <img src="img/hitchcock.jpg" alt="Alfred Hitchcock">
+      <span class="tooltip">Alfred Hitchcock (Cine)</span>
     </div>
     <div class="contenedor-img">
-      <img src="img/5.jpg" height="150" width="200" alt="Hut Mongol" onclick="cambiarModelo('modelos/5.glb', 'audios/5.mp3')" title="Hut Mongol">
-      <span class="tooltip">Hut Mongol</span>
+      <img src="img/cervantes.jpg" alt="Miguel de Cervantes">
+      <span class="tooltip">Miguel de Cervantes (Literatura)</span>
     </div>
     <div class="contenedor-img">
-      <img src="img/6.jpg" height="150" width="200" alt="Ziggurat" onclick="cambiarModelo('modelos/6.glb', 'audios/6.mp3')" title="Ziggurat">
-      <span class="tooltip">Ziggurat</span>
+      <img src="img/beethoven.jpg" alt="Ludwig van Beethoven">
+      <span class="tooltip">Ludwig van Beethoven (Música)</span>
     </div>
     <div class="contenedor-img">
-      <img src="img/7.jpg" height="150" width="200" alt="Pagoda" onclick="cambiarModelo('modelos/7.glb', 'audios/.mp3')" title="Pagoda">
-      <span class="tooltip">Pagoda Asiática</span>
-    </div>
-    <div class="contenedor-img">
-      <img src="img/8.jpg" height="150" width="200" alt="Acueducto Romano" onclick="cambiarModelo('modelos/8.glb', 'audios/8.mp3')" title="Acueducto Romano">
-      <span class="tooltip">Acueducto Romano</span>
+      <img src="img/baird.jpg" alt="John Baird">
+      <span class="tooltip">John Baird (Televisión)</span>
     </div>
   </div>
 
-  <!-- Visualizador 3D -->
-  <model-viewer id="visor3d" auto-rotate camera-controls ar shadow-intensity="1"></model-viewer>
-
-  <!-- Audio -->
-  <audio id="audio3d" controls style="margin-top: 10px;"></audio>
-
-  <script>
-    const visor = document.getElementById('visor3d');
-    const audio = document.getElementById('audio3d');
-
-    function cambiarModelo(rutaModelo, rutaAudio) {
-      visor.setAttribute('src', rutaModelo);
-      visor.classList.add('visor-activo');
-
-      audio.src = rutaAudio;
-      audio.play();
-
-      visor.cameraOrbit = "0deg 75deg 2.5m";
-
-      window.scrollTo({ top: visor.offsetTop - 100, behavior: 'smooth' });
-    }
-  </script>
+  <div class="video-container">
+    <video controls src="videos/shakespeare.mp4"></video>
+    <video controls src="videos/graham.mp4"></video>
+    <video controls src="videos/davinci.mp4"></video>
+    <video controls src="videos/hitchcock.mp4"></video>
+    <video controls src="videos/cervantes.mp4"></video>
+    <video controls src="videos/beethoven.mp4"></video>
+    <video controls src="videos/baird.mp4"></video>
+  </div>
 
 </body>
 </html>
