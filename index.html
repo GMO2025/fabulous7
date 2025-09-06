@@ -220,13 +220,13 @@
 
   <script>
     const videos = [
-      { src: "videos/shakespeare.mp4", titulo: "William Shakespeare", subtitulo: "Pionero del Teatro Universal" },
-      { src: "videos/graham.mp4", titulo: "Martha Graham", subtitulo: "Revolucionaria de la Danza Moderna" },
-      { src: "videos/davinci.mp4", titulo: "Leonardo da Vinci", subtitulo: "Maestro del Renacimiento" },
-      { src: "videos/hitchcock.mp4", titulo: "Alfred Hitchcock", subtitulo: "Maestro del Suspenso en el Cine" },
-      { src: "videos/cervantes.mp4", titulo: "Miguel de Cervantes", subtitulo: "Padre de la Novela Moderna" },
-      { src: "videos/beethoven.mp4", titulo: "Ludwig van Beethoven", subtitulo: "Genio de la Música Clásica" },
-      { src: "videos/baird.mp4", titulo: "John Baird", subtitulo: "Inventor de la Televisión" }
+      { src: "video/shakespeare.mp4", titulo: "William Shakespeare", subtitulo: "Pionero del Teatro Universal" },
+      { src: "video/graham.mp4", titulo: "Martha Graham", subtitulo: "Revolucionaria de la Danza Moderna" },
+      { src: "video/davinci.mp4", titulo: "Leonardo da Vinci", subtitulo: "Maestro del Renacimiento" },
+      { src: "video/hitchcock.mp4", titulo: "Alfred Hitchcock", subtitulo: "Maestro del Suspenso en el Cine" },
+      { src: "video/cervantes.mp4", titulo: "Miguel de Cervantes", subtitulo: "Padre de la Novela Moderna" },
+      { src: "video/beethoven.mp4", titulo: "Ludwig van Beethoven", subtitulo: "Genio de la Música Clásica" },
+      { src: "video/baird.mp4", titulo: "John Baird", subtitulo: "Inventor de la Televisión" }
     ];
 
     let indiceActual = 0;
@@ -244,9 +244,9 @@
       const titulo = document.getElementById("tituloVideo");
       const subtitulo = document.getElementById("subtituloVideo");
 
-      video.src = videos[index].src;
-      titulo.textContent = videos[index].titulo;
-      subtitulo.textContent = videos[index].subtitulo;
+      video.src = video[index].src;
+      titulo.textContent = video[index].titulo;
+      subtitulo.textContent = video[index].subtitulo;
 
       lightbox.style.display = "flex";
       video.play();
