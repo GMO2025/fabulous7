@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><img src="img/11.png" height="250" width="250>"The Fabulous Seven</title>
+  <title>The Fabulous Seven</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
 
     body {
       font-family: 'Playfair Display', serif;
-      background: linear-gradient(to right, #1a1a1a, #3a3a3a);
-      color: #f1f1f1;
+      background: linear-gradient(to right, #fdfdfd, #e6e9f0);
+      color: #333;
       margin: 0;
       padding: 0;
       text-align: center;
@@ -19,13 +19,22 @@
     h1 {
       font-size: 2.5em;
       margin: 20px 0;
-      color: #ffd700;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+      color: #0056a6;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    h1 img {
+      width: 60px;
+      height: 60px;
     }
 
     .galeria {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
       max-width: 1200px;
       margin: 0 auto;
@@ -40,14 +49,14 @@
     .galeria video {
       width: 100%;
       border-radius: 12px;
-      border: 3px solid #ffd700;
+      border: 3px solid #0056a6;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
     .galeria video:hover {
       transform: scale(1.08);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.7);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
     }
 
     .tooltip {
@@ -89,8 +98,8 @@
       max-width: 960px;
       aspect-ratio: 16/9;
       border-radius: 12px;
-      border: 4px solid #ffd700;
-      box-shadow: 0 0 30px rgba(255,215,0,0.6);
+      border: 4px solid #0056a6;
+      box-shadow: 0 0 30px rgba(0,86,166,0.6);
       background: #000;
     }
 
@@ -107,7 +116,8 @@
     }
 
     .close-btn, .nav-btn {
-      background: #ffd700;
+      background: #0056a6;
+      color: #fff;
       border: none;
       border-radius: 6px;
       padding: 8px 16px;
@@ -118,7 +128,7 @@
     }
 
     .close-btn:hover, .nav-btn:hover {
-      background: #e5c100;
+      background: #003f7d;
     }
 
     .nav-container {
@@ -127,10 +137,39 @@
       gap: 15px;
       margin-top: 10px;
     }
+
+    /* Botón volver arriba */
+    #btnTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #0056a6;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      display: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    #btnTop.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
-  <h1>The Fabulous Seven</h1>
+  <h1>
+    <img src="img/left.png" alt="decoración izquierda">
+    The Fabulous Seven
+    <img src="img/right.png" alt="decoración derecha">
+  </h1>
 
   <div class="galeria" id="galeria">
     <div class="contenedor-video">
@@ -175,6 +214,9 @@
       <button class="nav-btn" onclick="navegar(1)">⏭️ Siguiente</button>
     </div>
   </div>
+
+  <!-- Botón volver arriba -->
+  <button id="btnTop" onclick="scrollToTop()">⬆️</button>
 
   <script>
     const videos = [
@@ -229,6 +271,22 @@
       if (indiceActual >= videos.length) indiceActual = 0;
       abrirLightbox(indiceActual);
     }
+
+    // Botón volver arriba
+    const btnTop = document.getElementById("btnTop");
+
+    window.onscroll = () => {
+      if (document.documentElement.scrollTop > 200) {
+        btnTop.classList.add("show");
+      } else {
+        btnTop.classList.remove("show");
+      }
+    };
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   </script>
 </body>
 </html>
+
