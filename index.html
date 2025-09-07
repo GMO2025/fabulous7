@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Personajes Relevantes del Arte</title>
   <style>
-    /* Fondo degradado */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -31,14 +30,15 @@
       to   { text-shadow: 0 0 20px #ffd700, 0 0 40px #ff4500, 0 0 60px #ffd700; }
     }
 
+    /* Parrilla ajustada */
     main {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 25px;
       padding: 20px;
     }
 
-    /* Cuadros de video con animación fade-in */
+    /* Cuadro de video */
     .contenedor-video {
       position: relative;
       border: 3px solid #d4af37;
@@ -52,14 +52,6 @@
       transform: scale(0.9);
       animation: fadeIn 1s forwards;
     }
-
-    .contenedor-video:nth-child(1) { animation-delay: 0.2s; }
-    .contenedor-video:nth-child(2) { animation-delay: 0.4s; }
-    .contenedor-video:nth-child(3) { animation-delay: 0.6s; }
-    .contenedor-video:nth-child(4) { animation-delay: 0.8s; }
-    .contenedor-video:nth-child(5) { animation-delay: 1s; }
-    .contenedor-video:nth-child(6) { animation-delay: 1.2s; }
-    .contenedor-video:nth-child(7) { animation-delay: 1.4s; }
 
     @keyframes fadeIn {
       to {
@@ -77,6 +69,25 @@
       width: 100%;
       height: auto;
       display: block;
+    }
+
+    /* Pie con nombre del personaje */
+    .pie-video {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      color: #d4af37;
+      text-align: center;
+      font-size: 1.2em;
+      padding: 8px;
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .contenedor-video:hover .pie-video {
+      opacity: 1;
     }
 
     /* Ícono del rollo de cine */
@@ -178,30 +189,37 @@
   <main>
     <div class="contenedor-video">
       <video src="video/Shakespeare.mp4" muted></video>
+      <div class="pie-video">William Shakespeare</div>
       <img src="img/rollo.png" alt="Rollo de cine" class="rollo-cine">
     </div>
     <div class="contenedor-video">
       <video src="video/Graham.mp4" muted></video>
+      <div class="pie-video">Martha Graham</div>
       <img src="img/rollo.png" alt="Rollo de cine" class="rollo-cine">
     </div>
     <div class="contenedor-video">
       <video src="video/Leonardo.mp4" muted></video>
+      <div class="pie-video">Leonardo da Vinci</div>
       <img src="img/rollo.png" alt="Rollo de cine" class="rollo-cine">
     </div>
     <div class="contenedor-video">
       <video src="video/Hitchcock.mp4" muted></video>
+      <div class="pie-video">Alfred Hitchcock</div>
       <img src="img/rollo.png" alt="Rollo de cine" class="rollo-cine">
     </div>
     <div class="contenedor-video">
       <video src="video/Cervantes.mp4" muted></video>
+      <div class="pie-video">Miguel de Cervantes</div>
       <img src="img/rollo.png" alt="Rollo de cine" class="rollo-cine">
     </div>
     <div class="contenedor-video">
       <video src="video/Beethoven.mp4" muted></video>
+      <div class="pie-video">Ludwig van Beethoven</div>
       <img src="img/rollo.png" alt="Rollo de cine" class="rollo-cine">
     </div>
     <div class="contenedor-video">
       <video src="video/Baird.mp4" muted></video>
+      <div class="pie-video">John Baird</div>
       <img src="img/rollo.png" alt="Rollo de cine" class="rollo-cine">
     </div>
   </main>
@@ -292,4 +310,5 @@
   </script>
 </body>
 </html>
+
 
